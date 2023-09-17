@@ -22,8 +22,8 @@ table.insert(units,v.Name)
 
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wally2", true))()
-local w = library:CreateWindow('Sex VSoyz')
-w:Section('chich nat cac em vsoyz')
+local w = library:CreateWindow('vlxx.moe')
+w:Section('Sex loan luan me con')
 
 local b = w:Button("Xoa Idol Stage", function()
     for i,v in pairs(workspace.Effect:GetChildren()) do 
@@ -35,7 +35,7 @@ end)
 
 local b = w:Button("Xoa Unit Duoc Chon Cua Minh", function()
     for i,v in pairs(workspace.Units:GetChildren()) do 
-        if v:IsA('Model') and v.Name == getgenv().Name then 
+             if v:IsA('Model')  and v:FindFirstChild("Info") and v.Info:FindFirstChild("Owner") and v.Info.Owner.Value == game.Players.LocalPlayer.Name  and v.Name == getgenv().Name then 
              v:Destroy()
         end
         end
@@ -81,7 +81,30 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Upgrad
                     end)
 
 
-w:Section('nung lon thi ib anh VSoyz')
+  local b = w:Button("Xoa Unit ko co ability cua minh", function()
+
+                for i,v in pairs(workspace.Units:GetChildren()) do  
+                    if v:IsA('Model') and not v:FindFirstChild("ability") and v:FindFirstChild("Info")
+                     and v.Info:FindFirstChild("UpgradeCost") and v.Info:FindFirstChild("Owner") and v.Info.UpgradeCost.Value ~= "-1" and v.Info.Owner.Value == game.Players.LocalPlayer.Name then 
+     v:Destroy()
+                     end
+                     end
+                
+                    end)
+
+
+  local b = w:Button("Xoa Unit ko co ability cua ngkhac", function()
+
+                for i,v in pairs(workspace.Units:GetChildren()) do  
+                    if v:IsA('Model') and not v:FindFirstChild("ability") and v:FindFirstChild("Info")
+                     and v.Info:FindFirstChild("UpgradeCost") and v.Info:FindFirstChild("Owner") and v.Info.UpgradeCost.Value ~= "-1" and v.Info.Owner.Value ~= game.Players.LocalPlayer.Name then 
+                v:Destroy()
+                     end
+                     end
+                
+                    end)
+
+w:Section('them bu lon gai alime')
 
 
 w:Dropdown("sex vsoyz", {
