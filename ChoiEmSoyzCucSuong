@@ -50,6 +50,37 @@ local b = w:Button("Xoa Unit Dc Chon Nguoi Khac", function()
         end
 end)
 
+local b = w:Button("Nang Cap Idol", function()
+              for i,v in pairs(workspace.Units:GetChildren()) do  
+     if v:IsA('Model') and v.Name == "Shining Star Idol" and v:FindFirstChild("Info")
+      and v.Info:FindFirstChild("Upgrade") and v.Info.Upgrade.Value ~= 7 and v.Info:FindFirstChild("Owner") and v.Info.Owner.Value == game.Players.LocalPlayer.Name then 
+local args = {
+    [1] = v
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("UpgradeUnit"):InvokeServer(unpack(args))
+
+      end
+      end
+    end)
+
+    local b = w:Button("Nang Cap Unit dc Chon", function()
+
+                for i,v in pairs(workspace.Units:GetChildren()) do  
+                    if v:IsA('Model') and v.Name == getgenv().Name and v:FindFirstChild("Info")
+                     and v.Info:FindFirstChild("UpgradeCost") and v.Info:FindFirstChild("Owner") and v.Info.UpgradeCost.Value ~= "-1" and v.Info.Owner.Value == game.Players.LocalPlayer.Name then 
+                local args = {
+                   [1] = v
+                }
+                
+                game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("UpgradeUnit"):InvokeServer(unpack(args))
+                
+                     end
+                     end
+                
+                    end)
+
+
 w:Section('nung lon thi ib anh VSoyz')
 
 
